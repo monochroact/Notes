@@ -1,0 +1,41 @@
+ssh marcoho@sockeye.arc.ubc.ca 
+# to connect
+
+module load miniconda3 
+# a tool for downloading packages
+
+module load python
+
+source activate marcoho_env 
+# if the environ name is too generic, might search elsewhere for file, which I dont have access; source activate overcomes this
+
+crtl+c 
+# to cancel a process
+
+conda install -c bioconda prodigal 
+conda install -c bioconda diamond
+
+prodigal -i corrected_xxx.fasta -o gene.coords.gbk -a protein.translation.faa
+# it worked
+
+ARGminer
+# tried argminer but could not install docker/ use singularity to do so, will ask in sockeye session tmr
+
+AMRfinder
+# tried AMRfinder, could not use 
+
+amrfinder -p proteinxxx -g xxx.gff —plus
+# gff missing lines
+
+amrfinder -p proteinxxx 
+# stuck no changes and timed out
+
+amrfinder -p protein_translations.faa -g corrected_consensus.fasta --plus
+# to try
+
+CARD / RGI
+# installed card from mcmaster ver 3.1.1 (latest cannot solve environment idk why)
+
+rgi -i corrected_consensus.fasta -o rgi_trial_1 
+# default is blast, but can try diamond...but idk how to change the setting
+# stuck on training
