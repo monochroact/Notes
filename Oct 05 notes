@@ -27,8 +27,8 @@ AMRfinder
 amrfinder -p proteinxxx -g xxx.gff —plus
 # gff missing lines
 
-amrfinder -p proteinxxx 
-# stuck no changes and timed out
+amrfinder -p protein_translations.faa
+# running blastp, then stuck no changes and timed out
 
 amrfinder -p protein_translations.faa -g corrected_consensus.fasta --plus
 # to try
