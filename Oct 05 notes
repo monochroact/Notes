@@ -16,7 +16,7 @@ conda install -c bioconda prodigal
 conda install -c bioconda diamond
 
 prodigal -i corrected_xxx.fasta -o gene.coords.gbk -a protein.translation.faa
-# it worked
+# it worked, requested 1h 16 cpu 32 gb
 
 ARGminer
 # tried argminer but could not install docker/ use singularity to do so, will ask in sockeye session tmr
