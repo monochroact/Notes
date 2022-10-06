@@ -32,6 +32,12 @@ amrfinder -p protein_translations.faa
 
 amrfinder -p protein_translations.faa -g corrected_consensus.fasta --plus
 # to try
+# tried with first 1 and first 100 contigs
+
+amrfinder -p corrected_consensus.fasta
+# copied the fasta to AMRfiner/
+# then 
+qsub AMRfinder.sh
 
 CARD / RGI
 # installed card from mcmaster ver 3.1.1 (latest cannot solve environment idk why)
@@ -39,3 +45,9 @@ CARD / RGI
 rgi -i corrected_consensus.fasta -o rgi_trial_1 
 # default is blast, but can try diamond...but idk how to change the setting
 # stuck on training
+# tested with first 1 and first 100 i think, worked
+
+rgi -i corrected_consensus.fasta -o corrected_consensus.CARD
+# copied the fasta to CARD/
+# then 
+qsub CARD.sh
