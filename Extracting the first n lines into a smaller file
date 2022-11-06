@@ -1,0 +1,12 @@
+# Aim: to extract the first 200 contigs into a smaller file from a larger file
+
+grep ">" corrected_consensus.fasta -n | head -n 201
+# the command searches for ">" in the file and prints their line numbers (the contig name and their data are not on the same line, meaning the name "contig_xxx" is line 1 and then ACTGATGT... will be line 2 to 2000, until there is the next "contig_xxx" on line 2001), pipping it into head to only print the first 201 grep matches and their line numbers. 
+Look for the line above the 201st ">" for the next step (to splice only the first 200 contigs, just before the 201st contig)
+
+head -n 68228 corrected_consensus.fasta | grep ">" | wc -l
+# the command prints the first 68228 lines of the large file, which cuts off before the 201st contig AKA contains the 200 contigs; grep to look for the > and wc to count them. 
+Should be 200 which means that there are 200 contigs in the new file
+
+head -n 68228 corrected_consensus.fasta > corrected_consensus.first200.fasta
+# print the first 68228 lines into the file xxx.first200.fasta
